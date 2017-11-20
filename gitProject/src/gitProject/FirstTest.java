@@ -9,6 +9,6 @@ public class FirstTest {
 		ClassTwo ct = new ClassTwo();
 		
 		System.out.println("¸Þ·Õ");
-		
+		System.out.println("¹Ùº¸");
 	}
 }
