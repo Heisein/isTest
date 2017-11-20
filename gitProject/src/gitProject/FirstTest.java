@@ -8,6 +8,7 @@ public class FirstTest {
 		ClassOne co = new ClassOne();
 		ClassTwo ct = new ClassTwo();
 		
-		System.out.println("Å×½ºÆ®!!");
+		System.out.println("¸Þ·Õ");
+		
 	}
 }
