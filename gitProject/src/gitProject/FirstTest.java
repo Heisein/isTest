@@ -9,5 +9,7 @@ public class FirstTest {
 		ClassTwo ct = new ClassTwo();
 		
 		System.out.println("Å×½ºÆ®!!");
+		
+		System.out.println("aaa");
 	}
 }
