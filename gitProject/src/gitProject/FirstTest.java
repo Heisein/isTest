@@ -11,5 +11,6 @@ public class FirstTest {
 		System.out.println("Å×½ºÆ®!!");
 		
 		System.out.println("aaa");
+		System.out.println("aaa");
 	}
 }
