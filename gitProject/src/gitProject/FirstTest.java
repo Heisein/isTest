@@ -13,5 +13,9 @@ public class FirstTest {
 		System.out.println("aaa");
 		System.out.println("aaa");
 		System.out.println("sss");
+		System.out.println("sss");
+		System.out.println("sss");
+		System.out.println("sss");
+		
 	}
 }
