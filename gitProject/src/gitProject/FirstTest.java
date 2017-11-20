@@ -10,5 +10,6 @@ public class FirstTest {
 		
 		System.out.println("¸Þ·Õ");
 		System.out.println("¹Ùº¸");
+		System.out.println("¤¾¤¾");
 	}
 }
