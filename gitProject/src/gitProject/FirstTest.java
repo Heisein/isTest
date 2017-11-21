@@ -8,8 +8,6 @@ public class FirstTest {
 		ClassOne co = new ClassOne();
 		ClassTwo ct = new ClassTwo();
 		
-		System.out.println("∏ﬁ∑’");
-		System.out.println("πŸ∫∏");
-		System.out.println("§æ§æ");
+		System.out.println("±Í«„∫Í ∞≥≤‹~");
 	}
 }
