@@ -1,36 +1,22 @@
 package view;
 
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.*;
+import javax.imageio.stream.FileImageOutputStream;
+import javax.swing.*;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+public class Login_2 {
 
-import model.User;
-import model.UserDAO;
-
-public class Login {
 	JFrame jf = new JFrame("용돈조");
 	JPanel jp = new JPanel();
-	JTextField jta[] = new JTextField[2];
-	JLabel jl[] = new JLabel[2];
-	UserDAO users = new UserDAO();
 
-	public Login() {
-
+	public Login_2() {
 		SET_Text_Area();
+		SET_IMG_Area();
 		SET_Button_Area();
 		SET_Label_Area();
-		SET_IMG_Area();
 
 		jf.setSize(360, 600);
 
@@ -43,8 +29,10 @@ public class Login {
 	}
 
 	public void SET_Text_Area() {
-		jta[0] = new JTextField("아이디 입력(이메일)");
-		jta[1] = new JPasswordField("비밀번호 입력");
+
+		JTextArea jta[] = new JTextArea[2];
+		jta[0] = new JTextArea("아이디 입력(이메일)");
+		jta[1] = new JTextArea("비밀번호 입력");
 
 		jta[0].addMouseListener(new MouseAdapter() {
 			@Override
@@ -76,12 +64,11 @@ public class Login {
 
 	public void SET_IMG_Area() {
 
-		ImageIcon img = new ImageIcon("images/mainimg.png");
+		ImageIcon img = new ImageIcon("images/tree.png");
 		JLabel jl = new JLabel(img);
 		jl.setSize(200, 224);
 		jl.setLocation(75, 80);
 		jl.setVisible(true);
-
 		jp.add(jl);
 
 	}
@@ -93,32 +80,19 @@ public class Login {
 		jb.setBackground(new Color(78, 74, 105));
 		jb.setForeground(Color.WHITE);
 		jb.setVisible(true);
-
-		jb.addActionListener(new ActionListener() {
+		jb.addMouseListener(new MouseAdapter() {
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				char[] pass = ((JPasswordField) jta[1]).getPassword();
-				String userPwd = "";
-				for(int i=0; i<pass.length;i++){
-					userPwd += pass[i];
-				}
-				
-				System.out.println(jta[0].getText() + " " + userPwd);
-				
-				User loginUser = users.loginMethod(jta[0].getText(), userPwd);
-				if(loginUser != null){
-					System.out.println("로그인 성공!" + loginUser.getUserID());
-				}else{
-					System.out.println("아이디 혹은 비밀번호가 틀렸습니다.");
-				}
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				new Mainpage().point(jf.getLocation());
+				jf.setVisible(false);
 			}
 		});
-
 		jp.add(jb);
 	}
 
 	public void SET_Label_Area() {
-
+		JLabel jl[] = new JLabel[2];
 		jl[0] = new JLabel("아이디 찾기");
 		jl[1] = new JLabel("비밀번호 찾기");
 
@@ -129,7 +103,8 @@ public class Login {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
-				jl[0].setText("");
+				new FindID_7().point(jf.getLocation());
+				jf.setVisible(false);
 			}
 		});
 
@@ -137,7 +112,8 @@ public class Login {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
-				jl[1].setText("");
+				new FindPWD_10().point(jf.getLocation());
+				jf.setVisible(false);
 			}
 		});
 
@@ -148,6 +124,13 @@ public class Login {
 			jp.add(jl[i]);
 		}
 
+	}
+	
+
+	public void point(Point p) {
+		if (p != null) {
+			jf.setLocation(p);
+		}
 	}
 
 }

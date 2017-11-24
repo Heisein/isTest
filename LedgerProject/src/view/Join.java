@@ -1,34 +1,26 @@
 package view;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import javax.imageio.stream.FileImageOutputStream;
+import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
-import model.UserDAO;
-
-public class SignIn {
+public class Join {
+	
 	JFrame jf = new JFrame("용돈조");
 	JPanel jp = new JPanel();
 	JPanel sub = new JPanel();
 	JLabel jl[] = new JLabel[5];
-	JTextField[] jta = new JTextField[5];
-	UserDAO user = new UserDAO();
 
-	public SignIn() {
+	public Join() {
+
 		SET_Text_And_Label_Area();
 		SET_IMG_Area();
 		SET_Label_Area();
-
+		
 		jf.setSize(360, 600);
 		jp.setBackground(new Color(117, 102, 205));
 		jp.setLayout(null);
@@ -37,8 +29,8 @@ public class SignIn {
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
-	public void SET_Text_And_Label_Area() {// 회원 가입 영역
-
+	public void SET_Text_And_Label_Area() {//회원 가입 영역
+		
 		sub.setSize(360, 450);
 		sub.setLocation(0, 60);
 		sub.setLayout(null);
@@ -50,12 +42,13 @@ public class SignIn {
 		jl_intro.setVisible(true);
 		jl_intro.setBorder(new LineBorder(Color.GRAY));
 		sub.add(jl_intro);
-
-		jta[0] = new JTextField("이름 입력");
-		jta[1] = new JTextField("이메일 입력");
-		jta[2] = new JPasswordField();
-		jta[3] = new JPasswordField();
-		jta[4] = new JTextField("핸드폰번호 입력");
+		
+		JTextArea jta[] = new JTextArea[5];
+		jta[0] = new JTextArea("이름 입력");
+		jta[1] = new JTextArea("이메일 입력");
+		jta[2] = new JTextArea("비밀번호 입력");
+		jta[3] = new JTextArea("비밀번호 재입력");
+		jta[4] = new JTextArea("핸드폰번호 입력");
 
 		JLabel jl[] = new JLabel[5];
 		jl[0] = new JLabel("이름 입력");
@@ -89,45 +82,50 @@ public class SignIn {
 			jta[i].setBackground(Color.white);
 			jta[i].setVisible(true);
 			jta[i].setBorder(new LineBorder(Color.black));
-
+	
 		}
 		jp.add(sub);
-
-		// 내용삭제 영역 [이벤트임]
+		
+		//내용삭제 영역 [이벤트임]
 		jta[0].addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
 				jta[0].setText("");
 			}
 		});
 		jta[1].addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
 				jta[1].setText("");
 			}
 		});
 		jta[2].addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
 				jta[2].setText("");
 			}
 		});
 		jta[3].addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
 				jta[3].setText("");
 			}
 		});
 		jta[4].addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
 				jta[4].setText("");
 			}
 		});
 	}
-
+	
 	public void SET_IMG_Area() {
-		ImageIcon img = new ImageIcon("images/back.png");
+		ImageIcon img = new ImageIcon("back.png");
 		JLabel jl = new JLabel(img);
 		jl.setSize(50, 50);
 		jl.setLocation(5, 5);
@@ -135,17 +133,18 @@ public class SignIn {
 		jl.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				new SignInCheck();
+				// TODO Auto-generated method stub
+				new Terms_3().point(jf.getLocation());
 				jf.setVisible(false);
 			}
 		});
 
 		jp.add(jl);
 	}
-
-	public void SET_Label_Area() {// 기타 라벨 영역
+	
+	public void SET_Label_Area() {//기타 라벨 영역
 		JLabel jl[] = new JLabel[2];
-
+		
 		jl[0] = new JLabel("회원가입");
 		jl[1] = new JLabel("가입");
 
@@ -161,33 +160,19 @@ public class SignIn {
 			jl[i].setVisible(true);
 			jp.add(jl[i]);
 		}
-		
-		//가입 버튼
 		jl[1].addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				super.mouseClicked(e);
-//				jl[0] = new JLabel("이름 입력");
-//				jl[1] = new JLabel("이메일 입력");
-//				jl[2] = new JLabel("비밀번호 입력");
-//				jl[3] = new JLabel("비밀번호 재입력");
-//				jl[4] = new JLabel("핸드폰번호 입력");
-				String userId = jta[1].getText();
-				String userPwd = "";
-				char[] pass = ((JPasswordField) jta[2]).getPassword();
-				
-				for (int i = 0; i < pass.length; i++) {
-					userPwd += pass[i];
-				}				
-				String userName = jta[0].getText();
-				String userPhone = jta[4].getText();
-				
-				System.out.println(user.insertUser(userId, userPwd, userName, userPhone));
+				// TODO Auto-generated method stub
+				new JoinResult_6().point(jf.getLocation());
 				jf.setVisible(false);
-				new Login();
 			}
 		});
-
 	}
+	public void point(Point p) {
+	      if (p != null) {
+	         jf.setLocation(p);
+	   }
+	 }
 
 }

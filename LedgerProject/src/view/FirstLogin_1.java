@@ -12,11 +12,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class FirstLogin {
+public class FirstLogin_1 {
 	JFrame jf = new JFrame("¿ëµ·Á¶");
 	JPanel jp = new JPanel();
 
-	public FirstLogin() {
+	public FirstLogin_1() {
 		
 		SET_Button_Area();
 		SET_IMG_Area();
@@ -45,7 +45,7 @@ public class FirstLogin {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new Login();
+				new Login_2();
 				jf.setVisible(false);
 			}
 		});
@@ -54,7 +54,7 @@ public class FirstLogin {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new SignInCheck();
+				new Terms_3();
 				jf.setVisible(false);
 			}
 		});

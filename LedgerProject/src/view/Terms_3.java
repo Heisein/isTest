@@ -2,10 +2,14 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
+import javax.imageio.stream.FileImageOutputStream;
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
-public class SignInCheck {
+public class Terms_3 {
+	
 	JFrame jf = new JFrame("¿ëµ·Á¶");
 	JPanel jp = new JPanel();
 	boolean check1 = false;
@@ -14,7 +18,7 @@ public class SignInCheck {
 	JLabel jl[] = new JLabel[2];
 	JPanel sub[] = new JPanel[2];
 
-	public SignInCheck() {
+	public Terms_3() {
 
 		SET_Label_Area();
 		SET_Check_Area();
@@ -40,7 +44,6 @@ public class SignInCheck {
 		jl[1].setSize(100, 20);
 		jl[1].setLocation(150, 525);
 		jl[1].setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 14));
-
 		for (int i = 0; i < jl.length; i++) {
 			jl[i].setForeground(Color.WHITE);
 			jl[i].setVisible(true);
@@ -50,7 +53,7 @@ public class SignInCheck {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
-				new SignIn();
+				new Join().point(jf.getLocation());
 				jf.setVisible(false);
 			}
 		});
@@ -89,6 +92,7 @@ public class SignInCheck {
 
 			@Override
 			public void itemStateChanged(ItemEvent e) {
+				// TODO Auto-generated method stub
 				for (int i = 1; i < jc.length; i++) {
 					if (jc[i].isSelected() == true) {
 						jc[i].setSelected(false);
@@ -123,6 +127,7 @@ public class SignInCheck {
 
 			@Override
 			public void itemStateChanged(ItemEvent e) {
+				// TODO Auto-generated method stub
 				if (jc[2].isSelected()) {
 					check1 = true;
 				} else {
@@ -149,7 +154,7 @@ public class SignInCheck {
 	}
 
 	public void SET_IMG_Area() {
-		ImageIcon img = new ImageIcon("images/back.png");
+		ImageIcon img = new ImageIcon("back.png");
 		JLabel jl = new JLabel(img);
 		jl.setSize(50, 50);
 		jl.setLocation(5, 5);
@@ -157,12 +162,18 @@ public class SignInCheck {
 		jl.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				new FirstLogin();
+				// TODO Auto-generated method stub
+				new FirstLogin_1();
 				jf.setVisible(false);
 			}
 		});
-
+		
 		jp.add(jl);
 	}
+	public void point(Point p) {
+	      if (p != null) {
+	         jf.setLocation(p);
+	   }
+	 }
 
 }
